@@ -1,0 +1,25 @@
+mas_vision/
+├── apps/              应用程序入口 + 标定工具
+│   └── main.cpp       ← 一切的起点
+├── auto_aim/          核心视觉算法（最重要！）
+│   ├── armor_detector/   装甲板检测
+│   ├── armor_track/      位姿解算 + 目标跟踪
+│   └── armor_shoot/      弹道解算 + 火控
+├── hardware/          硬件抽象层
+│   ├── hikcamera/        海康工业相机驱动
+│   ├── serial/           串口通信（与STM32）
+│   └── usbcamera/        USB相机驱动
+├── threads/           多线程调度
+│   ├── camera_thread/    相机采集线程
+│   ├── serial_thread/    串口收发线程
+│   ├── armor_thread/     视觉处理主线程
+│   └── ros2_thread/      ROS2 UDP通信线程
+├── rm_utils/          工具库
+│   ├── algorithm/        数学工具、EKF、弹道、正弦拟合
+│   ├── display/          SDL2 可视化
+│   ├── mas_log/          日志系统
+│   ├── plotter/          UDP 数据绘图
+│   ├── ros2_comm/        ROS2 UDP 桥接
+│   ├── SPSCQueue/        无锁队列
+│   └── thread_pool/      线程池
+└── config/            运行时 YAML 配置
